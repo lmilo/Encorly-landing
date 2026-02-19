@@ -1,73 +1,39 @@
-# React + TypeScript + Vite
+🎸 Encorely Music DNA Landing Page
+Una solución de interfaz inmersiva y de alto impacto diseñada específicamente para la comunidad musical global. Este proyecto se enfoca en la captación de usuarios mediante una experiencia visual "Dark Mode Neón" y una arquitectura de componentes escalable.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🎯 Objetivo del Proyecto
+Desarrollar una landing page de alto impacto visual que resuelva la fricción entre el descubrimiento del concepto y el registro del usuario, optimizando la narrativa para inversionistas y priorizando una estética moderna.
 
-Currently, two official plugins are available:
+🚀 Key Features
+Responsive Music-First Architecture: Layout dinámico que se adapta de una visualización inmersiva (Desktop) a una navegación vertical fluida (Mobile).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Dynamic UI Components: * Smart Navbar: Sistema de gestión de idioma (i18n) con soporte para cambio dinámico ES/EN sin recarga.
 
-## React Compiler
+Interactive Feature Cards: Sistema de tarjetas con efectos de iluminación neón y profundidad de capas para resaltar la propuesta de valor.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Performance Focused: Desarrollado sobre Vite y Tailwind v4 para asegurar tiempos de carga mínimos y una fluidez óptima en dispositivos móviles.
 
-## Expanding the ESLint configuration
+Conversion Oriented: Call-to-actions estratégicos diseñados para dirigir el flujo de usuario hacia la lista de espera (Waitlist).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🛠️ Stack Tecnológico
+Core: React.js
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Bundler: Vite
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Styles: Tailwind CSS para un diseño atómico y utilitario de última generación.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Localization: i18next para una arquitectura de contenido global.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Icons: Lucide React para iconografía funcional ligera.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+📦 Estructura de Archivos
+Plaintext
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+src/
+ ├── components/
+ │   ├── Navbar.tsx     # Navegación y Localización
+ │   ├── Hero.tsx       # Propuesta de valor principal
+ │   ├── Features.tsx   # Pilares: The Deck y El Umbral de los 100
+ │   └── Integrations.tsx # Ecosistema (Spotify/Ticketmaster)
+ ├── i18n/              # Diccionarios y configuración ES/EN
+ └── App.tsx            # Orquestador principal de la landing
