@@ -1,0 +1,42 @@
+{
+  "navbar": {
+    "features": "Features",
+    "integrations": "Technology",
+    "values": "About Us",
+    "cta": "Waitlist"
+  },
+  "hero": {
+    "title": "Your next concert, better with company",
+    "subtitle": "Connect with people who vibrate on your same musical frequency. Stop going alone, start experiencing music together.",
+    "cta": "Join the waitlist"
+  },
+  "features": {
+    "discovery_title": "The Deck: Affinity Engine",
+    "discovery_desc": "It's not luck, it's rhythmic science. We use your Spotify history to create real connections based on what you actually listen to.",
+    "threshold_title": "The 100 Threshold",
+    "threshold_desc": "Guaranteed quality. You only unlock social features after 100 interactions to ensure authentic and committed profiles.",
+    "events_title": "The Lineup: Your Event Hub",
+    "events_desc": "All your local billboard in one place. Direct sync with Ticketmaster so you never miss a beat."
+  },
+  "integrations": {
+    "title": "Technological Power",
+    "subtitle": "Robust stack driven by leading APIs and .NET 9 architecture.",
+    "spotify_tag": "Musical Brain",
+    "spotify_desc": "Deep connection with Spotify API to extract your musical DNA (BPM, energy, and genres) without you having to type a single word.",
+    "ticketmaster_tag": "Total Access",
+    "ticketmaster_desc": "Real-time sync with Ticketmaster to offer you a live billboard. Buy your tickets and coordinate with your group in one place."
+  },
+  "values": {
+    "title": "Our Values",
+    "connection": "Authentic Connection",
+    "diversity": "Musical Diversity",
+    "experience": "Vibrant Experience"
+  },
+  "footer": {
+    "rights": "© 2025 Encorly. All rights reserved.",
+    "tagline": "Don't miss the beat, don't go alone.",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}

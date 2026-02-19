@@ -1,0 +1,42 @@
+{
+  "navbar": {
+    "features": "Funciones",
+    "integrations": "Tecnología",
+    "values": "Nosotros",
+    "cta": "Lista de Espera"
+  },
+  "hero": {
+    "title": "Tu próximo concierto, mejor acompañado",
+    "subtitle": "Conecta con personas que vibran en tu misma frecuencia musical. Deja de ir solo, empieza a vivir la música en comunidad.",
+    "cta": "Únete a la lista de espera"
+  },
+  "features": {
+    "discovery_title": "The Deck: Motor de afinidad",
+    "discovery_desc": "No es azar, es ciencia rítmica. Utilizamos el historial de Spotify para crear conexiones reales basadas en lo que realmente escuchas.",
+    "threshold_title": "El Umbral de los 100",
+    "threshold_desc": "Calidad garantizada. Solo desbloqueas la sección social tras 100 interacciones para asegurar perfiles auténticos y comprometidos.",
+    "events_title": "The Lineup: Tu Hub de Eventos",
+    "events_desc": "Toda tu cartelera local en un solo lugar. Sincronización directa con Ticketmaster para que nunca te pierdas un beat."
+  },
+  "integrations": {
+    "title": "Potencia Tecnológica",
+    "subtitle": "Stack robusto impulsado por APIs líderes y arquitectura en .NET 9.",
+    "spotify_tag": "Cerebro Musical",
+    "spotify_desc": "Conexión profunda con Spotify API para extraer tu ADN musical (BPM, energía y géneros) sin que tengas que teclear una sola palabra.",
+    "ticketmaster_tag": "Acceso Total",
+    "ticketmaster_desc": "Sincronización en tiempo real con Ticketmaster para ofrecerte una cartelera viva. Compra tus entradas y coordina con tu grupo en un solo lugar."
+  },
+  "values": {
+    "title": "Nuestros Valores",
+    "connection": "Conexión auténtica",
+    "diversity": "Diversidad musical",
+    "experience": "Experiencia vibrante"
+  },
+  "footer": {
+    "rights": "© 2025 Encorly. Todos los derechos reservados.",
+    "tagline": "Don't miss the beat, don't go alone.",
+    "contact": "Contacto",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  }
+}

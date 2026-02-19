@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+@theme {
+  /* Aquí definimos las variables para v4 */
+  --color-magenta-neon: #F366FF;
+  --color-violeta-neon: #9350FF;
+  --color-negro-puro: #181818;
+  --color-blanco-puro: #FFFFFF;
+
+  --font-headings: "Golos Text", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --background-image-vibe-gradient: linear-gradient(to right, #9350FF, #F366FF);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-negro-puro);
+    color: var(--color-blanco-puro);
+    font-family: var(--font-body);
+  }
+  
+  h1, h2, h3, h4 {
+    font-family: var(--font-headings);
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: var(--color-magenta-neon);
+    color: var(--color-negro-puro);
+    @apply px-6 py-2 rounded-full font-bold transition-transform duration-200 inline-block text-center;
+  }
+  
+  .btn-primary:hover {
+    @apply scale-105;
+  }
+}
