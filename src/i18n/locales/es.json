@@ -29,8 +29,11 @@
   "values": {
     "title": "Nuestros Valores",
     "connection": "Conexión auténtica",
+    "connection_desc": "Creamos vínculos reales entre fans usando señales de escucha verificables, no solo perfiles vacíos. Cada match nace de compatibilidad musical basada en datos de uso real.",
     "diversity": "Diversidad musical",
-    "experience": "Experiencia vibrante"
+    "diversity_desc": "Celebramos la mezcla de géneros, escenas y estilos para abrir nuevas rutas de descubrimiento. Recomendamos conexiones que amplían tu universo musical sin perder afinidad.",
+    "experience": "Experiencia vibrante",
+    "experience_desc": "Transformamos la previa y el concierto en una experiencia compartida con energía colectiva. Desde el match hasta el venue, buscamos que cada encuentro se sienta vivo y memorable."
   },
   "footer": {
     "rights": "© 2025 Encorly. Todos los derechos reservados.",

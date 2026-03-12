@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import onboardingMockup from '../assets/mockups/onboarding.png'; // ajusta la extensión si no es .png
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -42,29 +43,21 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Lado Derecho: Espacio para Imagen/Mockup */}
-          <div className="flex-1 relative w-full max-w-[500px] lg:max-w-none">
-            <div className="relative z-10 w-full aspect-[4/5] lg:aspect-square bg-gradient-to-br from-violeta-neon/20 to-magenta-neon/20 border border-blanco-puro/10 rounded-3xl backdrop-blur-sm flex items-center justify-center overflow-hidden">
-              {/* ESPACIO PARA TU IMAGEN: Reemplaza este div por tu <img> */}
-              <div className="text-blanco-puro/20 font-headings italic text-center p-8">
-                [ Espacio para Mockup de iPhone / Interfaz de Swipe ]
-              </div>
-              
-              {/* Elemento Decorativo: Onda de sonido */}
-              <div className="absolute bottom-10 left-0 right-0 h-20 flex items-center justify-center gap-1">
-                {[...Array(12)].map((_, i) => (
-                  <div 
-                    key={i} 
-                    className="w-1 bg-magenta-neon rounded-full animate-pulse" 
-                    // eslint-disable-next-line react-hooks/purity
-                    style={{ height: `${Math.random() * 100}%`, animationDelay: `${i * 0.1}s` }}
-                  ></div>
-                ))}
-              </div>
-            </div>
+          {/* Lado Derecho: Mockup */}
+          <div className="flex-1 relative w-full max-w-[560px] mx-auto">
+            {/* Glow de fondo suave */}
+            <div className="absolute -inset-6 bg-vibe-gradient opacity-25 blur-3xl rounded-[2rem] -z-10" />
 
-            {/* Efecto de resplandor detrás de la imagen */}
-            <div className="absolute -inset-4 bg-vibe-gradient opacity-20 blur-2xl rounded-3xl -z-10"></div>
+            {/* Card contenedora */}
+            <div className="relative rounded-[2rem] border border-blanco-puro/10 bg-negro-puro/30 backdrop-blur-sm p-3 md:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+              <img
+                src={onboardingMockup}
+                alt="Mockup onboarding de Encorly"
+                className="block w-full h-auto max-h-[78vh] object-contain rounded-[1.5rem]"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
           </div>
 
         </div>

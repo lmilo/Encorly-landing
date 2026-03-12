@@ -1,4 +1,6 @@
 import { useTranslation } from 'react-i18next';
+import logoBlancoEncorly from '../assets/logo/logo-blanco.png';
+
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -10,9 +12,11 @@ const Footer = () => {
           
           {/* Brand & Slogan */}
           <div className="text-center md:text-left">
-            <div className="text-2xl font-headings font-bold text-blanco-puro mb-2">
-              ENCORLY
-            </div>
+            <img
+              src={logoBlancoEncorly}
+              alt="Encorly"
+              className="h-10 w-auto mx-auto md:mx-0"
+            />
             <p className="text-magenta-neon font-body italic text-sm">
               {t('footer.tagline')}
             </p>

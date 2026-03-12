@@ -29,8 +29,11 @@
   "values": {
     "title": "Our Values",
     "connection": "Authentic Connection",
+    "connection_desc": "We build real bonds between fans using verified listening signals, not empty profiles. Every match starts from music compatibility based on real usage data.",
     "diversity": "Musical Diversity",
-    "experience": "Vibrant Experience"
+    "diversity_desc": "We celebrate mixed genres, scenes, and styles to unlock new discovery paths. We recommend connections that expand your musical world without losing affinity.",
+    "experience": "Vibrant Experience",
+    "experience_desc": "We turn the lead-up and the concert into a shared experience with collective energy. From match to venue, we aim for every encounter to feel alive and memorable."
   },
   "footer": {
     "rights": "© 2025 Encorly. All rights reserved.",

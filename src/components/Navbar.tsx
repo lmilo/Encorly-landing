@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Globe, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import logoEncorly from '../assets/logo/logo-color-bisel.png';
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
@@ -22,14 +23,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           
           {/* Logo - Usando la tipografía oficial */}
-          <div className="flex-shrink-0 flex items-center gap-2">
-            <div className="w-8 h-8 bg-vibe-gradient rounded-lg flex items-center justify-center">
-               {/* Aquí iría tu isotipo de nota+corazón */}
-               <span className="text-negro-puro font-bold">E</span>
-            </div>
-            <span className="text-blanco-puro font-headings text-2xl font-bold tracking-tighter">
-              ENCORLY
-            </span>
+          <div className="flex-shrink-0 flex items-center gap-3">
+            <img
+              src={logoEncorly}
+              alt="Encorly"
+              className="h-10 w-auto"
+            />
           </div>
 
           {/* Desktop Nav */}
