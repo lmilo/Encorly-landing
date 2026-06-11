@@ -1,86 +1,43 @@
 import { useTranslation } from 'react-i18next';
-import type { ReactNode } from 'react';
+import { UsersRound, Music2, Sparkles } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { Music2, Sparkles, UsersRound } from 'lucide-react';
+import Section from './ui/Section';
+import SectionHeading from './ui/SectionHeading';
+import Reveal from './ui/Reveal';
 
-type ValueId = 'connection' | 'diversity' | 'experience';
-type ValueIconName = 'UsersRound' | 'Music2' | 'Sparkles';
+type Value = { id: string; icon: LucideIcon };
 
-export type ValueItem = {
-  id: ValueId;
-  title: string;
-  description: string;
-  iconName?: ValueIconName;
-  icon?: ReactNode;
-};
+const VALUES: Value[] = [
+  { id: 'connection', icon: UsersRound },
+  { id: 'diversity', icon: Music2 },
+  { id: 'experience', icon: Sparkles },
+];
 
-export type ValuesProps = {
-  sectionId?: string;
-  sectionTitle?: string;
-  items?: ValueItem[];
-  className?: string;
-};
-
-const VALUE_ORDER: ValueId[] = ['connection', 'diversity', 'experience'];
-
-const VALUE_ICON_NAMES: Record<ValueId, ValueIconName> = {
-  connection: 'UsersRound',
-  diversity: 'Music2',
-  experience: 'Sparkles',
-};
-
-const ICON_COMPONENTS: Record<ValueIconName, LucideIcon> = {
-  UsersRound,
-  Music2,
-  Sparkles,
-};
-
-const IconBadge = ({ iconName }: { iconName: ValueIconName }) => {
-  const Icon = ICON_COMPONENTS[iconName];
-
-  return (
-  <div className="w-16 h-16 rounded-full bg-violeta-neon/10 flex items-center justify-center mb-6 border border-violeta-neon/20 shadow-[0_0_15px_rgba(147,80,255,0.1)]">
-      <Icon className="w-9 h-9 text-violeta-neon" strokeWidth={2.1} aria-hidden="true" />
-  </div>
-  );
-};
-
-const Values = ({ sectionId = 'values', sectionTitle, items, className = '' }: ValuesProps) => {
+const Values = () => {
   const { t } = useTranslation();
 
-  const valuesData: ValueItem[] =
-    items ??
-    VALUE_ORDER.map((id) => ({
-      id,
-      title: t(`values.${id}`),
-      description: t(`values.${id}_desc`),
-      iconName: VALUE_ICON_NAMES[id],
-    }));
-
   return (
-    <section id={sectionId} className={`py-24 bg-negro-puro relative ${className}`.trim()}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl font-headings font-bold text-blanco-puro mb-16">
-          {sectionTitle ?? t('values.title')}
-        </h2>
+    <Section id="values">
+      <SectionHeading eyebrow={t('values.eyebrow')} title={t('values.title')} />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {valuesData.map((val) => (
-            <article key={val.id} className="flex flex-col items-center">
-              {val.icon ?? <IconBadge iconName={val.iconName ?? VALUE_ICON_NAMES[val.id]} />}
-              <h3 className="text-xl font-headings font-bold text-blanco-puro">
-                {val.title}
-              </h3>
-              <p className="mt-3 max-w-xs text-blanco-puro/70 font-body leading-relaxed">
-                {val.description}
+      <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3">
+        {VALUES.map((val, i) => {
+          const Icon = val.icon;
+          return (
+            <Reveal key={val.id} delay={i * 0.1} className="flex flex-col items-center text-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-violet-500/20 bg-violet-500/10 text-violet-300 shadow-[0_0_24px_rgba(147,80,255,0.12)]">
+                <Icon size={28} strokeWidth={2} aria-hidden="true" />
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-fg">{t(`values.${val.id}`)}</h3>
+              <p className="mt-3 max-w-xs text-sm leading-relaxed text-fg-muted">
+                {t(`values.${val.id}_desc`)}
               </p>
-              {/* Línea decorativa inferior */}
-              <div className="mt-4 h-0.5 w-8 bg-vibe-gradient rounded-full opacity-50"></div>
-            </article>
-          ))}
-        </div>
+              <div className="mt-5 h-0.5 w-10 rounded-full bg-vibe-gradient opacity-60" />
+            </Reveal>
+          );
+        })}
       </div>
-    </section>
+    </Section>
   );
 };
 

@@ -1,79 +1,79 @@
 import { useTranslation } from 'react-i18next';
-import { Music, ShieldCheck, Ticket } from 'lucide-react';
+import { Music4, ShieldCheck, Ticket } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+import Section from './ui/Section';
+import SectionHeading from './ui/SectionHeading';
+import Reveal from './ui/Reveal';
+import AudioWave from './ui/AudioWave';
+
+type Feature = {
+  icon: LucideIcon;
+  badge: string;
+  title: string;
+  desc: string;
+  accent: string;
+};
 
 const Features = () => {
   const { t } = useTranslation();
 
-  const features = [
+  const features: Feature[] = [
     {
+      icon: Music4,
+      badge: t('features.discovery_badge'),
       title: t('features.discovery_title'),
       desc: t('features.discovery_desc'),
-      icon: <Music className="text-magenta-neon" size={32} />,
-      badge: "Sound-Swipe"
+      accent: 'text-magenta-400',
     },
     {
+      icon: ShieldCheck,
+      badge: t('features.threshold_badge'),
       title: t('features.threshold_title'),
       desc: t('features.threshold_desc'),
-      icon: <ShieldCheck className="text-violeta-neon" size={32} />,
-      badge: "Anti-Ghosting"
+      accent: 'text-violet-400',
     },
     {
+      icon: Ticket,
+      badge: t('features.events_badge'),
       title: t('features.events_title'),
       desc: t('features.events_desc'),
-      icon: <Ticket className="text-magenta-neon" size={32} />,
-      badge: "Live Hub"
-    }
+      accent: 'text-magenta-400',
+    },
   ];
 
   return (
-    <section id="features" className="py-24 bg-negro-puro relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Cabecera de la sección */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-headings font-bold text-blanco-puro mb-4">
-            {t('navbar.features')}
-          </h2>
-          <div className="h-1.5 w-24 bg-vibe-gradient mx-auto rounded-full"></div>
-        </div>
+    <Section id="features">
+      <SectionHeading eyebrow={t('features.eyebrow')} title={t('features.title')} subtitle={t('features.subtitle')} />
 
-        {/* Grid de Funcionalidades */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div 
-              key={index}
-              className="group relative p-8 rounded-3xl bg-blanco-puro/5 border border-blanco-puro/10 hover:border-magenta-neon/50 transition-all duration-300 hover:-translate-y-2"
+      <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+        {features.map((f, i) => {
+          const Icon = f.icon;
+          return (
+            <Reveal
+              key={f.title}
+              delay={i * 0.1}
+              className="ring-gradient group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.025] p-8 transition-transform duration-300 ease-out hover:-translate-y-1.5"
             >
-              {/* Espacio para imagen/icono decorativo */}
-              <div className="mb-6 flex justify-between items-start">
-                <div className="p-3 bg-negro-puro rounded-2xl border border-blanco-puro/10 group-hover:border-magenta-neon/30 group-hover:shadow-[0_0_15px_rgba(243,102,255,0.2)] transition-all">
-                  {feature.icon}
+              <div className="mb-6 flex items-start justify-between">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-ink-950 transition-shadow duration-300 group-hover:shadow-[0_0_24px_rgba(243,102,255,0.25)]">
+                  <Icon className={f.accent} size={26} strokeWidth={2} />
                 </div>
-                <span className="text-[10px] uppercase tracking-widest font-bold text-violeta-neon border border-violeta-neon/30 px-2 py-1 rounded-md">
-                  {feature.badge}
+                <span className="rounded-md border border-violet-500/30 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-violet-300">
+                  {f.badge}
                 </span>
               </div>
 
-              <h3 className="text-2xl font-headings font-bold text-blanco-puro mb-4">
-                {feature.title}
-              </h3>
-              
-              <p className="text-blanco-puro/60 font-body leading-relaxed mb-6">
-                {feature.desc}
-              </p>
+              <h3 className="text-xl font-bold text-fg">{f.title}</h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-fg-muted">{f.desc}</p>
 
-              {/* Placeholder para un visual pequeño o ilustración */}
-              <div className="w-full h-32 bg-negro-puro/40 rounded-xl border border-dashed border-blanco-puro/10 flex items-center justify-center">
-                <span className="text-[10px] text-blanco-puro/20 italic">[ Visual Placeholder ]</span>
+              <div className="mt-7 flex h-8 items-center gap-1 text-magenta-500/50 transition-colors duration-300 group-hover:text-magenta-500">
+                <AudioWave bars={20} className="w-full opacity-70" />
               </div>
-            </div>
-          ))}
-        </div>
+            </Reveal>
+          );
+        })}
       </div>
-
-      {/* Decoración de fondo */}
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-magenta-neon/5 blur-[100px] -z-10"></div>
-    </section>
+    </Section>
   );
 };
 

@@ -1,45 +1,133 @@
 {
   "navbar": {
+    "how": "How it works",
     "features": "Features",
-    "integrations": "Technology",
-    "values": "About Us",
-    "cta": "Waitlist"
-  },
-  "hero": {
-    "title": "Your next concert, better with company",
-    "subtitle": "Connect with people who vibrate on your same musical frequency. Stop going alone, start experiencing music together.",
+    "dna": "Music DNA",
+    "values": "About",
+    "faq": "FAQ",
     "cta": "Join the waitlist"
   },
+  "hero": {
+    "eyebrow": "Music matching for live-show fans",
+    "title_lead": "Never go to a concert",
+    "title_highlight": "alone again",
+    "subtitle": "Connect with people who vibrate on your same musical frequency. We match by real affinity —your Spotify music DNA— so you experience every show with company.",
+    "cta": "Join the waitlist",
+    "cta_secondary": "See how it works",
+    "proof": "Free · Matched by real affinity · Built on your Spotify",
+    "integrations_label": "Works with"
+  },
+  "how": {
+    "eyebrow": "In 4 steps",
+    "title": "From your playlist to the show, together",
+    "subtitle": "No empty profiles, no random swipes. Encorely starts from what you actually listen to.",
+    "step1_title": "Connect your Spotify",
+    "step1_desc": "We read your history to calculate your music DNA. Zero forms, zero effort.",
+    "step2_title": "Discover with Sound-Swipe",
+    "step2_desc": "Rate tracks deck-style. Every swipe sharpens your profile and trains your matches.",
+    "step3_title": "Find your match",
+    "step3_desc": "Hit 25 swipes to unlock the radar and connect with genuinely compatible fans.",
+    "step4_title": "Live it at the concert",
+    "step4_desc": "Coordinate by chat, make a plan and go to the show with people who vibe your music."
+  },
   "features": {
-    "discovery_title": "The Deck: Affinity Engine",
+    "eyebrow": "What you get",
+    "title": "Built for connections that are real",
+    "subtitle": "Three pillars that set Encorely apart from any matching app.",
+    "discovery_badge": "Sound-Swipe",
+    "discovery_title": "The Deck: affinity engine",
     "discovery_desc": "It's not luck, it's rhythmic science. We use your Spotify history to create real connections based on what you actually listen to.",
-    "threshold_title": "The 100 Threshold",
-    "threshold_desc": "Guaranteed quality. You only unlock social features after 100 interactions to ensure authentic and committed profiles.",
-    "events_title": "The Lineup: Your Event Hub",
+    "threshold_badge": "No empty profiles",
+    "threshold_title": "The 25 Threshold",
+    "threshold_desc": "Guaranteed quality. Social features unlock after 25 interactions, so we ensure authentic, committed profiles.",
+    "events_badge": "Live Hub",
+    "events_title": "The Lineup: your events hub",
     "events_desc": "All your local billboard in one place. Direct sync with Ticketmaster so you never miss a beat."
   },
+  "demo": {
+    "eyebrow": "Try it",
+    "title": "This is how Sound-Swipe feels",
+    "subtitle": "Drag the card or use the buttons. Every choice sharpens your music DNA.",
+    "hint": "Drag right if you like it, left to skip.",
+    "like": "Like",
+    "skip": "Skip"
+  },
+  "dna": {
+    "eyebrow": "Your edge",
+    "title": "Your music DNA, turned into matches",
+    "desc": "We analyze four dimensions of your music to find the people who vibe like you. It's not a personality quiz: it's your real listening data turned into compatibility.",
+    "dim_energy": "Energy",
+    "dim_dance": "Danceability",
+    "dim_valence": "Valence",
+    "dim_tempo": "Tempo",
+    "note": "Calculated in real time from your Spotify."
+  },
   "integrations": {
-    "title": "Technological Power",
-    "subtitle": "Robust stack driven by leading APIs and .NET 9 architecture.",
-    "spotify_tag": "Musical Brain",
-    "spotify_desc": "Deep connection with Spotify API to extract your musical DNA (BPM, energy, and genres) without you having to type a single word.",
-    "ticketmaster_tag": "Total Access",
-    "ticketmaster_desc": "Real-time sync with Ticketmaster to offer you a live billboard. Buy your tickets and coordinate with your group in one place."
+    "eyebrow": "Connected to what you already use",
+    "title": "Your music and your plans, in one place",
+    "subtitle": "Encorely leans on the platforms you already love to save you the work.",
+    "spotify_tag": "Your music",
+    "spotify_title": "Spotify",
+    "spotify_desc": "We extract your music DNA —energy, genres and tempo— straight from your history. Without typing a single word.",
+    "ticketmaster_tag": "Your plans",
+    "ticketmaster_title": "Ticketmaster",
+    "ticketmaster_desc": "Live local billboard: discover concerts, grab tickets and coordinate with your people without leaving the app."
+  },
+  "proof": {
+    "title": "Any scene, any vibe",
+    "subtitle": "Be among the first to live music as a community.",
+    "stat1_value": "4D",
+    "stat1_label": "of music DNA analyzed",
+    "stat2_value": "100%",
+    "stat2_label": "based on real data",
+    "stat3_value": "$0",
+    "stat3_label": "to join the list"
   },
   "values": {
-    "title": "Our Values",
-    "connection": "Authentic Connection",
-    "connection_desc": "We build real bonds between fans using verified listening signals, not empty profiles. Every match starts from music compatibility based on real usage data.",
-    "diversity": "Musical Diversity",
-    "diversity_desc": "We celebrate mixed genres, scenes, and styles to unlock new discovery paths. We recommend connections that expand your musical world without losing affinity.",
-    "experience": "Vibrant Experience",
-    "experience_desc": "We turn the lead-up and the concert into a shared experience with collective energy. From match to venue, we aim for every encounter to feel alive and memorable."
+    "eyebrow": "What drives us",
+    "title": "Our values",
+    "connection": "Authentic connection",
+    "connection_desc": "We build real bonds between fans using verified listening signals, not empty profiles. Every match starts from music compatibility based on real data.",
+    "diversity": "Musical diversity",
+    "diversity_desc": "We celebrate mixed genres, scenes and styles to unlock new discovery paths. Connections that expand your musical world without losing affinity.",
+    "experience": "Vibrant experience",
+    "experience_desc": "We turn the lead-up and the concert into a shared experience. From match to venue, every encounter feels alive and memorable."
+  },
+  "waitlist": {
+    "eyebrow": "Be among the first",
+    "title": "Join the waitlist",
+    "subtitle": "We'll let you know the moment we open access in your city. No spam, just the heads-up that matters.",
+    "placeholder": "you@email.com",
+    "button": "Join",
+    "button_loading": "Sending…",
+    "success_title": "You're in!",
+    "success_desc": "We'll email you when we launch. Get your playlist ready.",
+    "error_invalid": "Enter a valid email.",
+    "error_generic": "Something went wrong. Please try again in a moment.",
+    "privacy": "By joining you agree to receive Encorely news. No spam."
+  },
+  "faq": {
+    "eyebrow": "Before you ask",
+    "title": "Frequently asked questions",
+    "q1": "Is Encorely free?",
+    "a1": "Yes. Joining the waitlist and using Encorely at launch is free. Optional premium features will come later.",
+    "q2": "Do I need Spotify to use it?",
+    "a2": "Spotify is the heart of the match: that's where your music DNA comes from. We recommend connecting it for the best experience.",
+    "q3": "What do you do with my data?",
+    "a3": "We only use your listening signals to calculate compatibility. We don't sell your data or post anything without your permission.",
+    "q4": "When do you launch?",
+    "a4": "We're in the final tweaks. Join the list and you'll be among the first to get access in your city.",
+    "q5": "Is it only for dating?",
+    "a5": "No. Encorely is about connecting with like-minded fans —friendship, concert plans or whatever comes up— without the pressure of a dating app."
   },
   "footer": {
-    "rights": "© 2025 Encorly. All rights reserved.",
     "tagline": "Don't miss the beat, don't go alone.",
+    "nav_title": "Navigate",
+    "legal_title": "Legal",
+    "social_title": "Follow us",
     "contact": "Contact",
     "privacy": "Privacy",
-    "terms": "Terms"
+    "terms": "Terms",
+    "rights": "© 2025 Encorely. All rights reserved."
   }
 }

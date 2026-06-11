@@ -1,66 +1,134 @@
 import { useTranslation } from 'react-i18next';
-import onboardingMockup from '../assets/mockups/onboarding.png'; // ajusta la extensión si no es .png
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'motion/react';
+import type { PointerEvent } from 'react';
+import { ChevronDown } from 'lucide-react';
+import onboardingMockup from '../assets/mockups/onboarding.webp';
+import AudioWave from './ui/AudioWave';
+import WaitlistForm from './WaitlistForm';
+import PhoneFrame from './ui/PhoneFrame';
+import { SpotifyLogo, TicketmasterLogo } from './ui/BrandIcons';
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 const Hero = () => {
   const { t } = useTranslation();
+  const reduce = useReducedMotion();
+
+  // Tilt sutil del mockup siguiendo el cursor (desactivado con reduced-motion).
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [10, -10]), { stiffness: 150, damping: 18 });
+  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [-8, 8]), { stiffness: 150, damping: 18 });
+
+  const handlePointer = (e: PointerEvent<HTMLDivElement>) => {
+    if (reduce || e.pointerType === 'touch') return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    mx.set((e.clientX - rect.left) / rect.width - 0.5);
+    my.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+  const resetTilt = () => {
+    mx.set(0);
+    my.set(0);
+  };
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-      {/* Círculos de luz de fondo para dar profundidad (Vibe de concierto) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[60%] bg-violeta-neon/10 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[50%] bg-magenta-neon/10 blur-[120px] rounded-full"></div>
-      </div>
+    <section id="top" className="relative overflow-hidden pt-36 pb-20 lg:pt-44 lg:pb-28">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:px-8">
+        {/* Copy */}
+        <div className="text-center lg:text-left">
+          <motion.span
+            initial={reduce ? false : { opacity: 0, y: 12 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: EASE }}
+            className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs font-semibold text-fg-muted"
+          >
+            <span className="flex h-3.5 w-6 text-magenta-400">
+              <AudioWave bars={4} />
+            </span>
+            {t('hero.eyebrow')}
+          </motion.span>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          
-          {/* Lado Izquierdo: Copywriting */}
-          <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-headings font-bold text-blanco-puro leading-tight tracking-tighter animate-fade-in-up">
-              {t('hero.title')}
-            </h1>
-            <p className="mt-8 text-lg md:text-xl text-blanco-puro/60 font-body max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              {t('hero.subtitle')}
-            </p>
-            
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="btn-primary text-lg py-4 px-10 shadow-[0_0_20px_rgba(243,102,255,0.3)] hover:shadow-[0_0_35px_rgba(243,102,255,0.6)]">
-                {t('hero.cta')}
-              </button>
-              
-              <button className="border border-blanco-puro/20 hover:bg-blanco-puro/5 text-blanco-puro font-bold py-4 px-10 rounded-full transition-all">
-                {/* Texto opcional o enlace secundario */}
-                Learn more
-              </button>
+          <motion.h1
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE, delay: 0.08 }}
+            className="mt-7 text-balance text-5xl font-extrabold leading-[1.02] tracking-tight text-fg md:text-6xl lg:text-7xl"
+          >
+            {t('hero.title_lead')}{' '}
+            <span className="text-gradient">{t('hero.title_highlight')}</span>
+          </motion.h1>
+
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE, delay: 0.16 }}
+            className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-fg-muted lg:mx-0"
+          >
+            {t('hero.subtitle')}
+          </motion.p>
+
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE, delay: 0.24 }}
+            className="mt-9 flex flex-col items-center gap-4 lg:items-start"
+          >
+            <WaitlistForm idPrefix="hero" align="left" className="w-full max-w-md" />
+            <a
+              href="#how"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-fg-muted transition-colors hover:text-fg"
+            >
+              {t('hero.cta_secondary')}
+              <ChevronDown size={16} />
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={reduce ? false : { opacity: 0 }}
+            animate={reduce ? undefined : { opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.36 }}
+            className="mt-10 flex flex-col items-center gap-4 lg:items-start"
+          >
+            <p className="text-xs font-medium text-fg-subtle">{t('hero.proof')}</p>
+            <div className="flex items-center gap-5 text-fg-muted">
+              <span className="text-[11px] font-semibold uppercase tracking-widest text-fg-subtle">
+                {t('hero.integrations_label')}
+              </span>
+              <SpotifyLogo className="h-6 w-6 text-[#1DB954]" />
+              <TicketmasterLogo className="h-5 w-auto text-[#3A7DFF]" />
             </div>
+          </motion.div>
+        </div>
 
-            {/* Badges de Integración (Pequeños) */}
-            <div className="mt-12 flex items-center justify-center lg:justify-start gap-6 opacity-50 grayscale hover:grayscale-0 transition-all">
-               {/* Espacio para pequeños logos de Spotify/Ticketmaster */}
-               <div className="h-6 w-20 bg-blanco-puro/10 rounded animate-pulse"></div>
-               <div className="h-6 w-24 bg-blanco-puro/10 rounded animate-pulse"></div>
-            </div>
-          </div>
-
-          {/* Lado Derecho: Mockup */}
-          <div className="flex-1 relative w-full max-w-[560px] mx-auto">
-            {/* Glow de fondo suave */}
-            <div className="absolute -inset-6 bg-vibe-gradient opacity-25 blur-3xl rounded-[2rem] -z-10" />
-
-            {/* Card contenedora */}
-            <div className="relative rounded-[2rem] border border-blanco-puro/10 bg-negro-puro/30 backdrop-blur-sm p-3 md:p-4 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+        {/* Mockup con profundidad */}
+        <motion.div
+          initial={reduce ? false : { opacity: 0, scale: 0.94, y: 24 }}
+          animate={reduce ? undefined : { opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
+          className="relative mx-auto w-full max-w-[420px]"
+          style={{ perspective: 1200 }}
+          onPointerMove={handlePointer}
+          onPointerLeave={resetTilt}
+        >
+          <div className="absolute -inset-10 -z-10 rounded-full bg-vibe-gradient opacity-30 blur-[90px]" />
+          <motion.div
+            style={reduce ? undefined : { rotateX, rotateY, transformStyle: 'preserve-3d' }}
+            className={reduce ? '' : 'will-change-transform'}
+          >
+            <PhoneFrame className="animate-bob backdrop-blur-sm">
               <img
                 src={onboardingMockup}
-                alt="Mockup onboarding de Encorly"
-                className="block w-full h-auto max-h-[78vh] object-contain rounded-[1.5rem]"
+                alt="Pantalla de onboarding de la app Encorely"
+                className="block w-full rounded-[1.4rem]"
+                width={420}
+                height={860}
                 loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
-            </div>
-          </div>
-
-        </div>
+            </PhoneFrame>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
