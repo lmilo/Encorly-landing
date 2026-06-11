@@ -1,10 +1,78 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>encorely-landing</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#07060C" />
+
+    <title>Encorely — Nunca vuelvas a ir solo a un concierto</title>
+    <meta
+      name="description"
+      content="Encorely conecta fans que vibran en tu misma frecuencia musical. Descubre tu ADN musical con Spotify, haz match y vive cada concierto en comunidad."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Encorely" />
+    <meta property="og:title" content="Encorely — Nunca vuelvas a ir solo a un concierto" />
+    <meta
+      property="og:description"
+      content="Conecta con personas que vibran en tu misma frecuencia musical. Haz match por afinidad real y vive cada concierto acompañado."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Encorely — Nunca vuelvas a ir solo a un concierto" />
+    <meta
+      name="twitter:description"
+      content="Match musical por afinidad real. Descubre, conecta y vive cada concierto en comunidad."
+    />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Carga de fuentes no bloqueante (preload → stylesheet onload) -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      />
+    </noscript>
+
+    <!-- Analítica privacy-first (Plausible). Reemplaza [DOMINIO] por tu dominio real para activarla. -->
+    <script defer data-domain="[DOMINIO]" src="https://plausible.io/js/script.js"></script>
+
+    <!-- Datos estructurados (SEO) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "Encorely",
+            "url": "https://encorely.app",
+            "logo": "https://encorely.app/og-image.png",
+            "description": "App de match musical para fans de conciertos: conecta con personas afines según tu ADN musical de Spotify."
+          },
+          {
+            "@type": "WebSite",
+            "name": "Encorely",
+            "url": "https://encorely.app",
+            "inLanguage": "es"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
