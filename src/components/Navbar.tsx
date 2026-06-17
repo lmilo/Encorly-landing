@@ -19,11 +19,11 @@ const Navbar = () => {
   const lang = i18n.language.startsWith('en') ? 'en' : 'es';
 
   const navLinks = [
-    { name: t('navbar.how'), href: '#how' },
-    { name: t('navbar.features'), href: '#features' },
-    { name: t('navbar.dna'), href: '#dna' },
-    { name: t('navbar.values'), href: '#values' },
-    { name: t('navbar.faq'), href: '#faq' },
+    { name: t('navbar.how'), href: '/#how' },
+    { name: t('navbar.features'), href: '/#features' },
+    { name: t('navbar.dna'), href: '/#dna' },
+    { name: t('navbar.values'), href: '/#values' },
+    { name: t('navbar.faq'), href: '/#faq' },
   ];
 
   return (
@@ -33,7 +33,7 @@ const Navbar = () => {
           scrolled ? 'is-scrolled' : ''
         }`}
       >
-        <a href="#top" className="flex shrink-0 items-center" aria-label="Encorely">
+        <a href="/#top" className="flex shrink-0 items-center" aria-label="Encorely">
           <img src={logoEncorely} alt="Encorely" className="h-9 w-auto" />
         </a>
 

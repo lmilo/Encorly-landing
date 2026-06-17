@@ -15,7 +15,7 @@ const Footer = () => {
     { label: t('navbar.faq'), href: '/#faq' },
   ];
   const legalLinks: FooterLink[] = [
-    { label: t('footer.contact'), href: '#' },
+    { label: t('footer.contact'), to: '/contacto' },
     { label: t('footer.privacy'), to: '/privacidad' },
     { label: t('footer.terms'), to: '/terminos' },
   ];
