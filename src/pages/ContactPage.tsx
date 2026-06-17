@@ -13,16 +13,42 @@ import logoColor from '../assets/logo/logo-color-bisel.webp';
 const ContactPage = () => {
   usePageTitle('Contacto y Soporte');
 
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [type, setType] = useState('peticion');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [error, setError] = useState('');
+  const [hp, setHp] = useState(''); // honeypot
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setStatus('loading');
+    if (hp) return; // bot
     
-    // Simular el envío
-    setTimeout(() => {
+    setStatus('loading');
+    setError('');
+
+    try {
+      const res = await fetch('/.netlify/functions/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, type, message }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to send message');
+      }
+
       setStatus('success');
-    }, 1500);
+      setName('');
+      setEmail('');
+      setType('peticion');
+      setMessage('');
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+      setError('Hubo un problema al enviar tu mensaje. Por favor intenta de nuevo.');
+    }
   };
 
   return (
@@ -98,6 +124,11 @@ const ContactPage = () => {
                     id="name"
                     required
                     type="text"
+                    value={name}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                      if (status === 'error') setStatus('idle');
+                    }}
                     placeholder="Tu nombre completo"
                     className="h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 text-fg placeholder:text-fg-subtle transition-colors focus:border-magenta-400/60 focus-visible:outline-none"
                   />
@@ -109,6 +140,11 @@ const ContactPage = () => {
                     id="email"
                     required
                     type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (status === 'error') setStatus('idle');
+                    }}
                     placeholder="tu@correo.com"
                     className="h-12 w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 text-fg placeholder:text-fg-subtle transition-colors focus:border-magenta-400/60 focus-visible:outline-none"
                   />
@@ -119,6 +155,11 @@ const ContactPage = () => {
                   <select
                     id="type"
                     required
+                    value={type}
+                    onChange={(e) => {
+                      setType(e.target.value);
+                      if (status === 'error') setStatus('idle');
+                    }}
                     className="h-12 w-full rounded-xl border border-white/15 bg-ink-950 px-4 text-fg transition-colors focus:border-magenta-400/60 focus-visible:outline-none"
                   >
                     <option value="peticion">Petición / Consulta general</option>
@@ -134,10 +175,30 @@ const ContactPage = () => {
                     id="message"
                     required
                     rows={4}
+                    value={message}
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                      if (status === 'error') setStatus('idle');
+                    }}
                     placeholder="Escribe los detalles aquí..."
                     className="w-full rounded-xl border border-white/15 bg-white/[0.04] p-4 text-fg placeholder:text-fg-subtle transition-colors focus:border-magenta-400/60 focus-visible:outline-none resize-y"
                   ></textarea>
                 </div>
+
+                {/* Honeypot: oculto para humanos, lo llenan los bots */}
+                <input
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  value={hp}
+                  onChange={(e) => setHp(e.target.value)}
+                  className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                />
+
+                {status === 'error' && (
+                  <p className="text-sm text-magenta-300 text-center">{error}</p>
+                )}
 
                 <Button type="submit" variant="primary" size="lg" className="mt-4" disabled={status === 'loading'}>
                   {status === 'loading' ? 'Enviando...' : (
