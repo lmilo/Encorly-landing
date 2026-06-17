@@ -1,9 +1,3 @@
-// Contenido legal de Encorely (mercado principal: Colombia — Ley 1581 de 2012).
-// Placeholders a rellenar antes de publicar: [ENTIDAD_RESPONSABLE], [CORREO_CONTACTO],
-// [CIUDAD], [FECHA_VIGENCIA].
-// NOTA: borrador depurado para acelerar la revisión legal. Debe ser validado por un
-// abogado antes de publicarse (cumplimiento Ley 1581/2012, Decreto 1377/2013 y Ley 1480/2011).
-
 export type LegalSection = {
   heading: string;
   paragraphs?: string[];
@@ -21,7 +15,7 @@ export type LegalDoc = {
 export const privacyPolicy: LegalDoc = {
   slug: 'privacidad',
   title: 'Política de Privacidad',
-  lastUpdated: '[FECHA_VIGENCIA]',
+  lastUpdated: '17 de junio de 2026',
   intro: [
     'En Encorely tu privacidad es parte del producto, no una nota al pie. Esta Política de Privacidad explica qué datos personales tratamos, con qué finalidad, bajo qué fundamento legal y qué derechos tienes sobre ellos.',
     'El responsable del tratamiento de tus datos es [ENTIDAD_RESPONSABLE], con domicilio en [CIUDAD], Colombia. El tratamiento se rige por la Ley 1581 de 2012, el Decreto 1377 de 2013 y demás normas concordantes. Si en el futuro operamos en otros mercados, aplicaremos además la normativa local que corresponda.',
@@ -106,7 +100,7 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: '10. Cómo ejercer tus derechos',
       paragraphs: [
-        'El área responsable de la protección de datos atenderá tus consultas, solicitudes y reclamos en el correo electrónico [CORREO_CONTACTO]. Indica tu solicitud y los datos que permitan identificarte.',
+        'El área responsable de la protección de datos atenderá tus consultas, solicitudes y reclamos en el correo electrónico encorely.dev@edav.com.co. Indica tu solicitud y los datos que permitan identificarte.',
         'Las consultas se atenderán en un máximo de diez (10) días hábiles y los reclamos en un máximo de quince (15) días hábiles, prorrogables en los términos de los artículos 14 y 15 de la Ley 1581 de 2012.',
       ],
     },
@@ -137,7 +131,7 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: '15. Contacto',
       paragraphs: [
-        'Para cualquier duda sobre esta política o el tratamiento de tus datos, escríbenos a [CORREO_CONTACTO].',
+        'Para cualquier duda sobre esta política o el tratamiento de tus datos, escríbenos a encorely.dev@edav.com.co.',
       ],
     },
   ],
@@ -146,7 +140,7 @@ export const privacyPolicy: LegalDoc = {
 export const termsOfService: LegalDoc = {
   slug: 'terminos',
   title: 'Términos y Condiciones',
-  lastUpdated: '[FECHA_VIGENCIA]',
+  lastUpdated: '17 de junio de 2026',
   intro: [
     'Estos Términos y Condiciones regulan el acceso y uso de la aplicación y sitio web de Encorely (en adelante, la “Plataforma”), operada por [ENTIDAD_RESPONSABLE]. Al unirte a la lista de espera, crear una cuenta o usar la Plataforma, aceptas estos términos en su totalidad.',
     'Si no estás de acuerdo con ellos, abstente de utilizar Encorely.',
@@ -241,7 +235,7 @@ export const termsOfService: LegalDoc = {
     {
       heading: '14. Contacto',
       paragraphs: [
-        'Si tienes preguntas sobre estos términos, contáctanos en [CORREO_CONTACTO].',
+        'Si tienes preguntas sobre estos términos, contáctanos en encorely.dev@edav.com.co.',
       ],
     },
   ],
